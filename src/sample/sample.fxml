@@ -1,8 +1,57 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="46.0" layoutY="30.0" text="PCB监测系统" textFill="#2c2f2f">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="70.0" text="数据库地址">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="select_iplist" layoutX="133.0" layoutY="65.0" prefWidth="150.0" />
+      <Button fx:id="ip_check_btn" layoutX="322.0" layoutY="65.0" mnemonicParsing="false" text="启动" />
+      <Button fx:id="page_check_btn" layoutX="381.0" layoutY="65.0" mnemonicParsing="false" text="暂停" />
+      <TableView fx:id="t_data_list" layoutX="48.0" layoutY="117.0" prefHeight="391.0" prefWidth="214.0">
+         <columns>
+            <TableColumn fx:id="t_col_ip" prefWidth="119.0" resizable="false" text="缺陷" />
+            <TableColumn fx:id="t_col_pt" minWidth="3.0" prefWidth="93.0" resizable="false" text="数量" />
+         </columns>
+      </TableView>
+      <Button fx:id="ping_btn" layoutX="440.0" layoutY="65.0" mnemonicParsing="false" text="停止" />
+      <Button fx:id="telnet_btn" layoutX="502.0" layoutY="65.0" mnemonicParsing="false" text="连接" />
+      <Label layoutX="322.0" layoutY="31.0" text="版本信息:" textFill="#222c2c">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="31.0" text="1.0" textFill="#020ae8">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="518.0" text="温馨提示:" textFill="#e81919" visible="false">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="518.0" text="请连接到内网以后再使用本产品" textFill="#270ae4" visible="false">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ListView layoutX="290.0" layoutY="117.0" prefHeight="391.0" prefWidth="413.0" />
+      <ImageView fitHeight="118.0" fitWidth="142.0" layoutX="305.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>

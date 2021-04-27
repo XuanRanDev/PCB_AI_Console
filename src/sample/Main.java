@@ -1,23 +1,16 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-public class Main extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 800, 500));
-        primaryStage.show();
-    }
-
+/**
+ * Created By XuanRan on 2021/4/27
+ * 应用启动入口
+ */
+public class Main {
 
     public static void main(String[] args) {
-        launch(args);
+
+        Application.launch(StartClass.class);
+
     }
 }
