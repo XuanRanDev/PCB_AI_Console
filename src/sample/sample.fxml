@@ -23,10 +23,9 @@
       <ComboBox fx:id="select_iplist" layoutX="133.0" layoutY="65.0" prefWidth="150.0" />
       <Button fx:id="ip_check_btn" layoutX="322.0" layoutY="65.0" mnemonicParsing="false" text="启动" />
       <Button fx:id="page_check_btn" layoutX="381.0" layoutY="65.0" mnemonicParsing="false" text="暂停" />
-      <TableView fx:id="t_data_list" layoutX="48.0" layoutY="117.0" prefHeight="391.0" prefWidth="214.0">
+      <TableView fx:id="tabelView" layoutX="48.0" layoutY="117.0" prefHeight="391.0" prefWidth="214.0">
          <columns>
-            <TableColumn fx:id="t_col_ip" prefWidth="119.0" resizable="false" text="缺陷" />
-            <TableColumn fx:id="t_col_pt" minWidth="3.0" prefWidth="93.0" resizable="false" text="数量" />
+
          </columns>
       </TableView>
       <Button fx:id="ping_btn" layoutX="440.0" layoutY="65.0" mnemonicParsing="false" text="停止" />

@@ -1,14 +1,13 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -20,10 +19,14 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     public ListView<ErrorClass> listview;
+    public TableView<TotalClass> tabelView;
     ObservableList<ErrorClass> observableList;
+    ObservableList<TotalClass> totalObservableList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        initTabelView();
 
         observableList = listview.getItems();
 
@@ -33,6 +36,72 @@ public class Controller implements Initializable {
         CustomList();
 
 
+
+    }
+
+    private void initTabelView() {
+
+        totalObservableList = tabelView.getItems();
+        initTableData();
+
+
+    }
+
+    /**
+     * 初始化TabelView数据
+     */
+    private void initTableData() {
+
+        initTableMoNiData();
+
+        tabelView.setItems(totalObservableList);
+
+        initTabelChildData();//初始化Tabel子项数据
+    }
+
+    private void initTabelChildData() {
+
+        TableColumn<TotalClass,String> title_err_name = new TableColumn<>("瑕疵名称");
+        TableColumn<TotalClass,String> title_err_num = new TableColumn<>("数量");
+
+        title_err_name.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<TotalClass, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<TotalClass, String> param) {
+
+                SimpleStringProperty simpleStringProperty = new SimpleStringProperty(param.getValue().getTotal_err_cause());
+                return simpleStringProperty;
+            }
+        });
+
+        title_err_num.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<TotalClass, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<TotalClass, String> param) {
+
+                SimpleStringProperty simpleStringProperty = new SimpleStringProperty(param.getValue().getTotal_err_num());
+                return simpleStringProperty;
+            }
+        });
+
+        //禁用排序
+        title_err_name.setSortable(false);
+        title_err_num.setSortable(false);
+
+        //add
+        tabelView.getColumns().add(title_err_name);
+        tabelView.getColumns().add(title_err_num);
+
+    }
+
+    /**
+     * 模拟TabelView数据，在release时请delete
+     */
+    private void initTableMoNiData() {
+
+        String[] err_list = {"疑似不良","缺料","碰伤","缺料"};
+        for (int i = 0; i <3; i++) {
+            TotalClass totalClass = new TotalClass(err_list[i],"18" );
+            totalObservableList.add(totalClass);
+        }
 
     }
 
