@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -73,10 +74,12 @@ public class Controller implements Initializable {
 
                             //onClick
 
-                            imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                            hBox.setOnMouseClicked(new EventHandler<MouseEvent>() {
                                 @Override
                                 public void handle(MouseEvent mouseEvent) {
-                                    System.out.println("clcik : " + data.getErr_no());
+
+                                    ShowDialog(data.getErr_Image());
+
                                 }
                             });
 
@@ -89,8 +92,22 @@ public class Controller implements Initializable {
         });
     }
 
+    private void ShowDialog(ImageView imageView) {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test");
+        ImageView im = imageView;
+        im.setFitWidth(1000);
+        im.setFitHeight(600);
+        alert.setGraphic(im);
+        if (!alert.isShowing()) {
+            alert.show();
+        }
+
+    }
+
     /**
-     * 读取数据库中的瑕疵内容
+     * 读取数据库中的内容
      */
     private void initErrorClass() {
 
@@ -104,7 +121,7 @@ public class Controller implements Initializable {
     private void MoNiData() {
 
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             ErrorClass errorClass = new ErrorClass(new ImageView("sample/a.jpg"),i,"瑕疵详情："+"未知");
             observableList.add(errorClass);
         }
