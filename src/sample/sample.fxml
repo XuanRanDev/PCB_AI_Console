@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Label layoutX="46.0" layoutY="30.0" text="PCB监测系统" textFill="#2c2f2f">
          <font>
@@ -51,7 +51,6 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <ListView layoutX="290.0" layoutY="117.0" prefHeight="391.0" prefWidth="413.0" />
-      <ImageView fitHeight="118.0" fitWidth="142.0" layoutX="305.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" />
+      <ListView fx:id="listview" layoutX="290.0" layoutY="117.0" prefHeight="391.0" prefWidth="413.0" />
    </children>
 </Pane>
